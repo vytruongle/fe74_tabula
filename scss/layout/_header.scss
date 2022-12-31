@@ -1,0 +1,110 @@
+header {
+  .header__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../img/yellow_top_wave_01.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    height: 520px;
+  }
+
+  .header__bar {
+    position: fixed;
+    z-index: 999;
+    background-color: $white;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+
+  #collapsibleNavbar {
+    .nav-item .header__text {
+      @include fontText($fs-1, $color-text, 80px, $fw-2);
+      margin-right: 36px;
+      position: relative;
+    }
+
+    .nav-item .header__text:hover {
+      color: $primary;
+      transition: all 0.3s;
+    }
+
+    .nav-item .header__text.active::after,
+    .nav-item .header__text:hover::after {
+      content: "";
+      @include dot($primary);
+    }
+
+    .header__contact {
+      text-decoration: none;
+      color: $white;
+      padding: 10px 24px;
+      background-color: $primary;
+      border-radius: 100px;
+      border: 1px solid $primary;
+      font-size: $fs-1;
+      transition: all 0.4s;
+    }
+
+    .header__contact:hover {
+      background-color: transparent;
+      color: $primary;
+    }
+
+    .navbar-nav {
+      margin-left: auto;
+      .header__icon {
+        @include fontText($fs-1, $color-text, 38px, $fw-2);
+        transition: all 0.4s;
+      }
+
+      .header__icon:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+/* reponsive */
+@include responsive_960("large") {
+  header {
+    .navbar {
+      justify-content: start !important;
+    }
+    .navbar-toggler {
+      background-color: $primary;
+      font-size: 18px;
+    }
+    .navbar-brand {
+      img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+    #collapsibleNavbar {
+      .nav-item .header__text {
+        @include fontText($fs-1, $color-text, 1.1, $fw-2);
+        padding: 1.5rem 0;
+      }
+
+      .nav-item .header__text.active::after,
+      .nav-item .header__text:hover::after {
+        display: none;
+      }
+
+      .navbar-nav--min {
+        margin-left: 0;
+        flex-direction: row;
+        .header__icon {
+          margin-left: 10px;
+          @include fontText($fs-2, $color-text, 38px, $fw-2);
+        }
+      }
+    }
+  }
+}

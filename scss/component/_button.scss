@@ -1,0 +1,13 @@
+.btn--primary {
+  @include style-button($primary, 50%, #fff);
+}
+
+.btn--white {
+  @include style-button(#fff, 100%, $color-text);
+}
+
+@include responsive_960("large") {
+  .btn--primary {
+    @include style-button($primary, 100%, #fff);
+  }
+}
